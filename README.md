@@ -56,4 +56,23 @@ To delete your existing project, click the trash can icon next to the project na
 
 # Configuring Automated Builds
 
+In this section, you will configure a GitHub webhook to automatically trigger a rebuild of your application whenever you push code changes to your forked repository. This involves adding the Github webhook URL from your application into your Github repository. Follow the instructions on the page.
+
+The next time you push a code change to your forked repository, your application will automatically rebuild.
+
+# Viewing Your Running Application
+
+In this section, you will view your running application using a web browser.
+
+In the [web console](https://console.preview.openshift.com/console/), view the ***Overview*** page for your project to determine the web address for your application. Click the web address displayed underneath the ***NODEJS-MONGODB-EXAMPLE*** service to open your application in a new browser tab.
+
+***NOTE***: You can find all routes configured for your project at any time in the web console:
+
+1. From the web console, navigate to the project containing your application.
+2. Click the ***[ Browse ]*** tab, then click ***[ Routes ]***.
+3. Click the host name to open your application in a browser new tab.
+
+# Pushing a Code Change
+
 more ...
+
