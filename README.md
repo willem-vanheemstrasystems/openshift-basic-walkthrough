@@ -136,13 +136,23 @@ We need to add the environment variable ***MONGO_URL*** to our Node.js web app s
 oc set env dc/nodejs-mongo-persistent MONGO_URL='mongodb://admin:secret@172.30.140.143:27017/sampledb'
 ```
 
+Replace 'secret' with MONGODB_ADMIN_PASSWORD
+
 Using:
 
 DATABASE_SERVICE_NAME=mongodb
 
 MONGODB_USER=admin (default)
 
-MONGODB_ADMIN_PASSWORD=secret (default, change this)
+MONGODB_ADMIN_PASSWORD= see note ->
+
+***NOTE***: To get the MONGODB_ADMIN_PASSWORD, on the running Pod go to the Terminal and ```echo``` the environment variable, like so:
+
+```javascript
+echo $MONGODB_ADMIN_PASSWORD
+```
+
+You will be promted with something like: Ot4rp5Bs3wHNsDXO, which is the MongoDB admin password
 
 URL TO MONGODB INSTANCE=172.30.140.143:27017
 
