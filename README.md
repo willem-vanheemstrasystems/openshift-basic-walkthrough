@@ -40,6 +40,10 @@ To delete your existing project, click the trash can icon next to the project na
 
 5. On the next screen, replace the user name in the Git Repository URL parameter with your GitHub user name (e.g. https://github.com/willem-vanheemstrasystems/nodejs-ex.git). Use the default values provided for all other parameters:
 
+***Name***: nodejs-mongo-persistent
+
+***Namespace***: openshift
+
 ***Memory Limit***: 512Mi
 
 ***Memory Limit (MongoDB)***: 512Mi
@@ -49,6 +53,26 @@ To delete your existing project, click the trash can icon next to the project na
 ***Git Repository URL***: https://github.com/willem-vanheemstrasystems/nodejs-ex.git
 
 ***Git Reference***: ```<leave blank>```
+
+***Context Directory***: ```<leave blank>```
+
+***Application Hostname***: ```<leave blank>```
+
+***GitHub Webhook Secret***: ```<leave blank>```
+
+***Generic Webhook Secret***: ```<leave blank>```
+
+***Database Service Name***: mongodb
+
+***MongoDB Username***: scott
+
+***MongoDB Password***: tiger
+
+***Database Name***: sampledb
+
+***Database Administrator Password***: secret
+
+***Custom NPM Mirror URL***: ```<leave blank>```
 
 6. Finally, scroll to the bottom of the page and click ***[ Create ]*** to deploy your application.
 
