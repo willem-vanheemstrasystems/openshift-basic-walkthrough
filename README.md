@@ -113,7 +113,7 @@ The page count will go up everytime somebody opens the page. Its count is stored
 
 We can connect to the MongoDB database, using the URL stated above.
 
-If we want to connect to services (e.g. mongoDB) on OpenShift from outside of OpenShift, we need to do ***port-forwarding*** (read https://blog.openshift.com/getting-started-with-port-forwarding-on-openshift/ ). See also https://blog.openshift.com/set-up-local-access-to-openshift-hosted-services-with-port-forwarding/
+If we want to connect to services (e.g. mongoDB) on OpenShift from outside of OpenShift, we need to do ***port-forwarding*** (read https://blog.openshift.com/getting-started-with-port-forwarding-on-openshift/ ). See also https://docs.openshift.com/online/dev_guide/ssh_environment.html
 
 Alternatively, you can have OpenShift connect to external sources (such as databases). See https://docs.openshift.com/online/dev_guide/integrating_external_services.html
 
