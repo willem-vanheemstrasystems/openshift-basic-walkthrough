@@ -133,14 +133,36 @@ PUSH_DOCKERCFG_PATH=/var/run/secrets/openshift.io/push
 We need to add the environment variable ***MONGO_URL*** to our Node.js web app so that it will utilize our MongoDB, and enable the "Page view count" feature. Run:
 
 ```javascript
-oc set env dc/nodejs-ex MONGO_URL='mongodb://admin:secret@172.30.140.143:27017/mongo_db'
+oc set env dc/nodejs-mongo-persistent MONGO_URL='mongodb://admin:secret@172.30.140.143:27017/sampledb'
 ```
 
+Using:
 
+DATABASE_SERVICE_NAME=mongodb
+MONGODB_USER=admin (default)
+MONGODB_ADMIN_PASSWORD=secret (default, change this)
+URL TO MONGODB INSTANCE=172.30.140.143:27017
+MONGODB_DATABASE=sampledb
+
+You will be prompted with:
+
+```javascript
+deploymentconfig "nodejs-mongo-persistent" updated
+```
+
+On the web console you will see the application NODEJS MONGO PERSISTENT updating.
+
+You can check if the MONGO_URL has been set, by opening the deployment 'nodejs-mongo-persistent' and look at the tab 'Environment'. It should show a (new) line:
+
+```javascript
+MONGO_URL: mongodb://admin:secret@172.30.140.143:27017/sampledb
+```
+
+Open the web URL to check if now page counts are being recorded in the database.
 
 ## Success
 
-
+You should now have a Node.js welcome page showing the current hit count, as stored in a MongoDB database.
 
 # Pushing a Code Change
 
