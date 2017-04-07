@@ -172,6 +172,16 @@ You can check if the MONGO_URL has been set, by opening the deployment 'nodejs-m
 MONGO_URL: mongodb://admin:secret@172.30.140.143:27017/sampledb
 ```
 
+You can check for errors, by looking for the current instance of 'nodejs-mongo-persistent' in the ***Logs*** tab.
+
+For example, if authentication fails you may see: 
+
+```javascript
+Server running on http://0.0.0.0:8080
+Error connecting to Mongo. Message:
+MongoError: Authentication failed.
+```
+
 Open the web URL to check if now page counts are being recorded in the database.
 
 ## Success
