@@ -130,6 +130,11 @@ DROP_CAPS=KILL,MKNOD,SETGID,SETUID,SYS_CHROOT
 PUSH_DOCKERCFG_PATH=/var/run/secrets/openshift.io/push
 ```
 
+We need to add the environment variable ***MONGO_URL*** to our Node.js web app so that it will utilize our MongoDB, and enable the "Page view count" feature. Run:
+
+```javascript
+oc set env dc/nodejs-ex MONGO_URL='mongodb://admin:secret@172.30.140.143:27017/mongo_db'
+```
 
 
 
