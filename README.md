@@ -143,7 +143,7 @@ Questions? Try the support group
 >
 ```
 
-Now you can use any MongoDB statements to query the MongoDB instance.
+Now you can use any MongoDB statements to query the MongoDB instance (see https://docs.mongodb.com/manual/mongo/#start-the-mongo-shell).
 
 ***NOTE***: the above database connected to is the 'test' database schema (the default). If you prefer to connect to another database schema (e.g. 'sampledb'), run the following command:
 
