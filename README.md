@@ -115,6 +115,7 @@ We can connect to the MongoDB database, using the URL stated above.
 
 If we want to connect to services (e.g. mongoDB) on OpenShift from outside of OpenShift, we need to do ***port-forwarding*** (read https://blog.openshift.com/getting-started-with-port-forwarding-on-openshift/ ).
 
+Alternatively, you can have OpenShift connect to external sources (such as databases). See https://docs.openshift.com/online/dev_guide/integrating_external_services.html
 
 If on the web page, at 'Request information, Page view count': is states ***No database configured***, do the following:
 
