@@ -98,6 +98,21 @@ In the [web console](https://console.preview.openshift.com/console/), view the *
 2. Click the ***[ Browse ]*** tab, then click ***[ Routes ]***.
 3. Click the host name to open your application in a browser new tab.
 
+On the web page of the application, if still the default page, you will see:
+
+```javascript
+Request information
+Page view count: 1
+
+DB Connection Info:
+Type:	MongoDB
+URL:	mongodb://172.30.146.136:27017/sampledb
+```
+
+The page count will go up everytime somebody opens the page. Its count is stored in the MongoDB database.
+
+We can connect to the MongoDB database, using the URL stated above.
+
 If on the web page, at 'Request information, Page view count': is states ***No database configured***, do the following:
 
 # Configuring the MongoDB Database
