@@ -76,7 +76,66 @@ If on the web page, at 'Request information, Page view count': is states ***No d
 
 # Configuring the MongoDB Database
 
-more ...
+You may have noticed the index page "Page view count" reads "No database configured". Let's fix that. 
+
+Running ```oc status``` or checking the web console will reveal the ***address*** of the newly created MongoDB:
+
+```javascript
+svc/mongodb - 172.30.140.143:27017
+  dc/mongodb deploys openshift/mongodb:3.2
+    deployment #1 deployed 18 minutes ago - 1 pod
+
+http://nodejs-mongo-persistent-totaljs-001.44fs.preview.openshiftapps.com (svc/nodejs-mongo-persistent)
+  dc/nodejs-mongo-persistent deploys istag/nodejs-mongo-persistent:latest <-
+    bc/nodejs-mongo-persistent source builds https://github.com/willem-vanheemstrasystems/nodejs-ex.git on openshift/nodejs:4
+    deployment #1 deployed 16 minutes ago - 1 pod
+```
+
+Note that the url for our new Mongo instance, for our example, is 172.30.140.143:27017, yours will likely differ.
+
+## Setting environment variables
+
+To take a look at environment variables set for each pod, run ```oc env pods --all --list```.
+
+You will be prompted with text similar to the below:
+
+```javascript
+# pods mongodb-1-i7fkn, container mongodb
+# MONGODB_USER from secret nodejs-mongo-persistent, key database-user
+# MONGODB_PASSWORD from secret nodejs-mongo-persistent, key database-password
+MONGODB_DATABASE=sampledb
+# MONGODB_ADMIN_PASSWORD from secret nodejs-mongo-persistent, key database-admin-password
+# pods nodejs-mongo-persistent-1-0gn06, container nodejs-mongo-persistent
+DATABASE_SERVICE_NAME=mongodb
+# MONGODB_USER from secret nodejs-mongo-persistent, key database-user
+# MONGODB_PASSWORD from secret nodejs-mongo-persistent, key database-password
+MONGODB_DATABASE=sampledb
+# MONGODB_ADMIN_PASSWORD from secret nodejs-mongo-persistent, key database-admin-password
+# pods nodejs-mongo-persistent-1-build, container sti-build
+BUILD={"kind":"Build","apiVersion":"v1","metadata":{"name":"nodejs-mongo-persistent-1","namespace":"totaljs-001","selfLink":"/oapi/v1/namespaces/totaljs-001/builds/nodejs-mon
+go-persistent-1","uid":"7ffa3cdb-1b6a-11e7-b3b6-0e3d364e19a5","resourceVersion":"1094178766","creationTimestamp":"2017-04-07T08:16:28Z","labels":{"app":"nodejs-mongo-persiste
+nt","buildconfig":"nodejs-mongo-persistent","openshift.io/build-config.name":"nodejs-mongo-persistent","openshift.io/build.start-policy":"Serial","template":"nodejs-mongo-per
+sistent"},"annotations":{"openshift.io/build-config.name":"nodejs-mongo-persistent","openshift.io/build.number":"1"}},"spec":{"serviceAccount":"builder","source":{"type":"Git
+","git":{"uri":"https://github.com/willem-vanheemstrasystems/nodejs-ex.git"}},"strategy":{"type":"Source","sourceStrategy":{"from":{"kind":"DockerImage","name":"registry.acce
+ss.redhat.com/rhscl/nodejs-4-rhel7@sha256:a7d1f9c3058c197a97eaca339dcbbba4596429df0fb1bcd1578a9ed6f523b2ee"},"env":[{"name":"NPM_MIRROR"}],"forcePull":true}},"output":{"to":{
+"kind":"DockerImage","name":"172.30.47.227:5000/totaljs-001/nodejs-mongo-persistent:latest"},"pushSecret":{"name":"builder-dockercfg-y41rw"}},"resources":{},"postCommit":{"sc
+ript":"npm test"},"nodeSelector":null,"triggeredBy":[{"message":"Build configuration change"}]},"status":{"phase":"New","outputDockerImageReference":"172.30.47.227:5000/total
+js-001/nodejs-mongo-persistent:latest","config":{"kind":"BuildConfig","namespace":"totaljs-001","name":"nodejs-mongo-persistent"}}}
+
+SOURCE_REPOSITORY=https://github.com/willem-vanheemstrasystems/nodejs-ex.git
+SOURCE_URI=https://github.com/willem-vanheemstrasystems/nodejs-ex.git
+ORIGIN_VERSION=v3.4.1.10
+ALLOWED_UIDS=1-
+DROP_CAPS=KILL,MKNOD,SETGID,SETUID,SYS_CHROOT
+PUSH_DOCKERCFG_PATH=/var/run/secrets/openshift.io/push
+```
+
+
+
+
+## Success
+
+
 
 # Pushing a Code Change
 
