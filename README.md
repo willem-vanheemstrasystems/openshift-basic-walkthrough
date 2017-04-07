@@ -139,9 +139,13 @@ oc set env dc/nodejs-mongo-persistent MONGO_URL='mongodb://admin:secret@172.30.1
 Using:
 
 DATABASE_SERVICE_NAME=mongodb
+
 MONGODB_USER=admin (default)
+
 MONGODB_ADMIN_PASSWORD=secret (default, change this)
+
 URL TO MONGODB INSTANCE=172.30.140.143:27017
+
 MONGODB_DATABASE=sampledb
 
 You will be prompted with:
