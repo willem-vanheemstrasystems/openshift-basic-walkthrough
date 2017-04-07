@@ -158,8 +158,51 @@ switched to db sampledb
 >
 ```
 
+To authenticate oneself to get access to the database data, run:
+
+```javascript
+> db.auth({user: 'userL6K', pwd: '3NX70dFqJ7Qepfl6'})
+```
+
+***NOTE***: To obtain the user name and password, echo the following on the Terminal tab of the MongodDB pod instance:
+
+```javascript
+echo $MONGODB_USER
+echo $MONGODB_PASSWORD
+```
+
 While in the remote shell, you can issue commands as if you are inside the container and perform local operations like monitoring, debugging, and using CLI commands specific to what is running in the container.
 
+Get all collections from the sampledb:
+
+```javascript
+> db.getCollectionNames()
+[ "counts" ]
+>
+```
+
+It returns one collection, called 'counts' (which in this case stores the page counts).
+
+Look into the collection 'counts' to see what is in there:
+
+```javascript
+> db.counts.find()
+```
+
+If the page has been visited more than once, it returns documents like so:
+
+```javascript
+{ "_id" : ObjectId("58e74cfc2d837200186a9bf2"), "ip" : "10.1.37.1", "date" : 1491553532326 }
+{ "_id" : ObjectId("58e76c23984b9100181c5cbd"), "ip" : "10.1.37.1", "date" : 1491561507661 }
+{ "_id" : ObjectId("58e77480984b9100181c5cbe"), "ip" : "10.1.37.1", "date" : 1491563648069 }
+{ "_id" : ObjectId("58e77a10984b9100181c5cbf"), "ip" : "10.1.37.1", "date" : 1491565072190 }
+{ "_id" : ObjectId("58e77da7984b9100181c5cc0"), "ip" : "10.1.37.1", "date" : 1491565991796 }
+{ "_id" : ObjectId("58e77db4984b9100181c5cc1"), "ip" : "10.1.37.1", "date" : 1491566004209 }
+{ "_id" : ObjectId("58e78ccb984b9100181c5cc2"), "ip" : "10.1.37.1", "date" : 1491569867679 }
+>
+```
+
+Try refreshing the web page (http://nodejs-mongo-persistent-totaljs-001.44fs.preview.openshiftapps.com/), and execute the db.counts.find() command again. If all goes well a new document will have been added to the collection.
 
 Alternatively, you can have OpenShift connect to external sources (such as databases). See https://docs.openshift.com/online/dev_guide/integrating_external_services.html
 
