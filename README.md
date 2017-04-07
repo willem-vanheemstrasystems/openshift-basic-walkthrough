@@ -64,7 +64,7 @@ The next time you push a code change to your forked repository, your application
 
 In this section, you will view your running application using a web browser.
 
-In the [web console](https://console.preview.openshift.com/console/), view the ***Overview*** page for your project to determine the web address for your application. Click the web address displayed underneath the ***NODEJS-MONGODB-EXAMPLE*** service to open your application in a new browser tab.
+In the [web console](https://console.preview.openshift.com/console/), view the ***Overview*** page for your project to determine the web address for your application. Click the web address displayed underneath the ***NODEJS-MONGODB-EXAMPLE*** service to open your application in a new browser tab. E.g. http://nodejs-mongo-persistent-totaljs-001.44fs.preview.openshiftapps.com
 
 ***NOTE***: You can find all routes configured for your project at any time in the web console:
 
