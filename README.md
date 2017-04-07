@@ -115,6 +115,52 @@ We can connect to the MongoDB database, using the URL stated above.
 
 If we want to connect to services (e.g. mongoDB) on OpenShift from outside of OpenShift, we need to do ***port-forwarding*** (read https://blog.openshift.com/getting-started-with-port-forwarding-on-openshift/ ). See also https://docs.openshift.com/online/dev_guide/ssh_environment.html
 
+### Start a Secure Shell Session
+Open a remote shell session to a container (after having successfully logged into OpenShift):
+
+```javascript
+oc rsh <pod>
+```
+For 'pod', fill in the name of the pod as shown on the web console, e.g. 'mongodb-1-9iq18' which is a pod that contains a MongoDB instance.
+
+Make connection with the MongoDB, by running the following command:
+
+```javascript
+mongo
+```
+
+You will be prompted as follows:
+
+```javascript
+MongoDB shell version: 3.2.10
+connecting to: test
+Welcome to the MongoDB shell.
+For interactive help, type "help".
+For more comprehensive documentation, see
+        http://docs.mongodb.org/
+Questions? Try the support group
+        http://groups.google.com/group/mongodb-user
+>
+```
+
+Now you can use any MongoDB statements to query the MongoDB instance.
+
+***NOTE***: the above database connected to is the 'test' database schema (the default). If you prefer to connect to another database schema (e.g. 'sampledb'), run the following command:
+
+```javascript
+> use sampledb
+```
+
+You will be prompted as follows:
+
+```javascript
+switched to db sampledb
+>
+```
+
+While in the remote shell, you can issue commands as if you are inside the container and perform local operations like monitoring, debugging, and using CLI commands specific to what is running in the container.
+
+
 Alternatively, you can have OpenShift connect to external sources (such as databases). See https://docs.openshift.com/online/dev_guide/integrating_external_services.html
 
 If on the web page, at 'Request information, Page view count': is states ***No database configured***, do the following:
