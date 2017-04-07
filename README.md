@@ -72,6 +72,12 @@ In the [web console](https://console.preview.openshift.com/console/), view the *
 2. Click the ***[ Browse ]*** tab, then click ***[ Routes ]***.
 3. Click the host name to open your application in a browser new tab.
 
+If on the web page, at 'Request information, Page view count': is states ***No database configured***, do the following:
+
+# Configuring the MongoDB Database
+
+more ...
+
 # Pushing a Code Change
 
 more ...
